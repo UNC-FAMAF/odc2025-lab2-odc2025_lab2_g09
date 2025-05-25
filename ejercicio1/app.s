@@ -13,19 +13,9 @@ main:
 	//---------------- CODE HERE ------------------------------------
 
 	bl colorear_fondo
-
 	//re-set base after every layer 
 	mov x0, x20
-
-	//draw a rectangle
-	//hardcoded COLOR_BLUE_GRAY
-	movz x1, 0xFF7A, lsl #16 
-    movk x1, 0x95A7, lsl #0
-    mov x2, 0       // start_x
-    mov x3, 0       // start_y
-    mov x4, 90       // width
-    mov x5, 480       // height
-    bl dib_rectangulo
+	bl dib_pared
 
 	// Ejemplo de uso de gpios
 	mov x9, GPIO_BASE
