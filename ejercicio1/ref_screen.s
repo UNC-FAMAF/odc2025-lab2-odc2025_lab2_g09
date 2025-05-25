@@ -1,0 +1,2 @@
+.equ SCREEN_WIDTH, 		640
+.equ SCREEN_HEIGH, 		480
