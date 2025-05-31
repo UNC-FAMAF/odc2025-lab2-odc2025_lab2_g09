@@ -13,7 +13,7 @@ main:
 	//---------------- CODE HERE ------------------------------------
 
 	bl colorear_fondo
-	//re-set base after every layer 
+	//setea la base despues de cada capa 
 	mov x0, x20
 	bl dib_pared
 

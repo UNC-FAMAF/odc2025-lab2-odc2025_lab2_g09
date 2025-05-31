@@ -3,36 +3,36 @@
 
 dib_rectangulo:
 
-    /*Input:
-        x0: base address of screen (start of framebuffer)
-        x1: rectangle color (ARGB 32-bit)
-        x2: rect_start_x (column)
-        x3: rect_start_y (row)
-        x4: rect_width
-        x5: rect_height
+    /* Entrada:
+        x0: dirección base de la pantalla (inicio del framebuffer)
+        x1: color del rectángulo (ARGB de 32 bits)
+        x2: rect_start_x (columna)
+        x3: rect_start_y (fila)
+        x4: rect_width (ancho del rectángulo)
+        x5: rect_height (alto del rectángulo)
     */
 
-    // Calculate pointer to first pixel: x3 * SCREEN_WIDTH + x2
+    // Calcular el puntero al primer píxel: x3 * SCREEN_WIDTH + x2
     // tmp0 = y * SCREEN_WIDTH
     mov x6, x3                  // x6 = y
     mov x7, SCREEN_WIDTH
     mul x6, x6, x7              // x6 = y * SCREEN_WIDTH
     add x6, x6, x2              // x6 = (y * SCREEN_WIDTH + x)
-    lsl x6, x6, 2               // x6 *= 4 (4 bytes per pixel)
-    add x6, x0, x6              // x6 = base address of rectangle
+    lsl x6, x6, 2               // x6 *= 4 (4 bytes por píxel)
+    add x6, x0, x6              // x6 = dirección base del rectángulo
 
-    mov x7, x5                  // x7 = rect_height
+    mov x7, x5                  // x7 = rect_height (alto del rectángulo)
 .rect_row_loop:
-    mov x8, x4                  // x8 = rect_width
-    mov x9, x6                  // x9 = start of this row
+    mov x8, x4                  // x8 = rect_width (ancho del rectángulo)
+    mov x9, x6                  // x9 = inicio de esta fila
 .rect_col_loop:
-    str w1, [x9]                // store color in pixel
-    add x9, x9, 4               // move to next pixel
+    str w1, [x9]                // guardar color en el píxel
+    add x9, x9, 4               // avanzar al siguiente píxel
     subs x8, x8, 1
-    b.ne .rect_col_loop
+    b.ne .rect_col_loop         // repetir hasta completar la fila
 
-    add x6, x6, SCREEN_WIDTH * 4  // move to next row
+    add x6, x6, SCREEN_WIDTH * 4  // avanzar a la siguiente fila
     subs x7, x7, 1
-    b.ne .rect_row_loop
+    b.ne .rect_row_loop         // repetir hasta completar todas las filas
 
     ret

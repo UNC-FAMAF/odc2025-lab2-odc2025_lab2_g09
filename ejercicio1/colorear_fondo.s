@@ -3,7 +3,7 @@
 .global colorear_fondo
 
 colorear_fondo:
-    //hardcoded COLOR_BG_DARKBLUE
+    //COLOR_BG_DARKBLUE
 	movz x10, 0xFF0D, lsl 16
 	movk x10, 0x171F, lsl 00
 
