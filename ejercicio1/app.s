@@ -13,9 +13,22 @@ main:
 	//---------------- CODE HERE ------------------------------------
 
 	bl colorear_fondo
-	//setea la base despues de cada capa 
+	//resetea la base despues de cada capa 
 	mov x0, x20
-	bl dib_pared
+
+ 	
+	// color blanco
+	movz x1, 0xFFFF, lsl #16
+	movk x1, 0xFFFF, lsl #0
+	mov x2, 400		// inicio_x
+	mov x3, 200		// inicio_y
+	mov x4, 12		// largo; ancho inicial/final
+	mov x5, 20		// ancho creciente/decreciente
+	bl dib_ovalo_vertical
+
+
+	mov x0, x20		// resetea la base
+ 	bl dib_pared
 
 	// Ejemplo de uso de gpios
 	mov x9, GPIO_BASE
