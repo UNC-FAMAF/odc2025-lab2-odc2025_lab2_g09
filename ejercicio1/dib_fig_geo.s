@@ -1,5 +1,7 @@
 .include "ref_screen.s"
 .global dib_rectangulo
+.global dibujar_ovalo
+.global dibujar_circulo
 
 dib_rectangulo:
 
@@ -22,17 +24,17 @@ dib_rectangulo:
     add x6, x0, x6              // x6 = dirección base del rectángulo
 
     mov x7, x5                  // x7 = rect_height (alto del rectángulo)
-.rect_row_loop:
-    mov x8, x4                  // x8 = rect_width (ancho del rectángulo)
-    mov x9, x6                  // x9 = inicio de esta fila
-.rect_col_loop:
-    str w1, [x9]                // guardar color en el píxel
-    add x9, x9, 4               // avanzar al siguiente píxel
-    subs x8, x8, 1
-    b.ne .rect_col_loop         // repetir hasta completar la fila
+    .rect_row_loop:
+        mov x8, x4                  // x8 = rect_width (ancho del rectángulo)
+        mov x9, x6                  // x9 = inicio de esta fila
+    .rect_col_loop:
+        str w1, [x9]                // guardar color en el píxel
+        add x9, x9, 4               // avanzar al siguiente píxel
+        subs x8, x8, 1
+        b.ne .rect_col_loop         // repetir hasta completar la fila
 
-    add x6, x6, SCREEN_WIDTH * 4  // avanzar a la siguiente fila
-    subs x7, x7, 1
-    b.ne .rect_row_loop         // repetir hasta completar todas las filas
+        add x6, x6, SCREEN_WIDTH * 4  // avanzar a la siguiente fila
+        subs x7, x7, 1
+        b.ne .rect_row_loop         // repetir hasta completar todas las filas
 
-    ret
+ret

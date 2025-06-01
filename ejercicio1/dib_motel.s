@@ -1,6 +1,8 @@
 .global dib_motel
 
 dib_motel:
+    mov x28, x30 
+
     //COLOR_WALL
     movz x1, 0xFF2E, lsl #16 
     movk x1, 0x4659, lsl #0 
@@ -186,6 +188,6 @@ dib_motel:
 
     
     
-
+mov x30, x28
     
 ret

@@ -1,7 +1,8 @@
 .global dib_pared
 
 dib_pared:
-
+    //salva el ret a main
+    mov x28, x30 
     //dibuja pared
 	//COLOR_WALL
 	movz x1, 0xFF2E, lsl #16 
@@ -24,7 +25,7 @@ dib_pared:
     mov x4, 550       
     mov x5, 45       
     bl dib_rectangulo
-    
+
     //dibuja marco interno de ventana
 	//COLOR_BROWN_DARK
     movz x1, 0xFF35, lsl #16 
@@ -71,4 +72,7 @@ dib_pared:
     mov x5, 5       
     bl dib_rectangulo
 
+//retorna el ret a main
+mov x30, x28
 ret
+

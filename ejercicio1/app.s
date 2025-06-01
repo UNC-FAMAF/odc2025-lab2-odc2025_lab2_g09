@@ -11,11 +11,15 @@ main:
 	// x0 contiene la direccion base del framebuffer
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
+	bl colorear_fondo	
 
-	bl colorear_fondo
 	//setea la base despues de cada capa 
 	mov x0, x20
 	bl dib_pared
+
+	mov x0, x20
+	bl dib_motel
+
 
 	// Ejemplo de uso de gpios
 	mov x9, GPIO_BASE
