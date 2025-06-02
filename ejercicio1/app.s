@@ -23,6 +23,9 @@ main:
 	mov x0, x20
 	bl dib_letrero
 
+	mov x0, x20
+	bl stickman
+
 
 	// Ejemplo de uso de gpios
 	mov x9, GPIO_BASE
