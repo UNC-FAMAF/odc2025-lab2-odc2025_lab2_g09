@@ -20,6 +20,9 @@ main:
 	mov x0, x20
 	bl dib_motel
 
+	mov x0, x20
+	bl dib_letrero
+
 
 	// Ejemplo de uso de gpios
 	mov x9, GPIO_BASE
