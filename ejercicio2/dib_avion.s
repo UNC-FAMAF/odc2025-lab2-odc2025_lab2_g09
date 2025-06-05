@@ -1,5 +1,4 @@
 .global avion
-.global dispawn_avion
 
 avion:
 	mov x28, x30

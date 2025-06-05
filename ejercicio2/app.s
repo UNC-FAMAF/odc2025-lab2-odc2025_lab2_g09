@@ -19,8 +19,9 @@ main:
 
 	mov x0, x20
 	bl dib_letrero
-
-	bl loop_avion
+	
+	mov x0, x20
+	bl loop_animacion
 
 
 	// Ejemplo de uso de gpios

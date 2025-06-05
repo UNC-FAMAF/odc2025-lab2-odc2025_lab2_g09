@@ -1,6 +1,6 @@
-.global stickman 
+.global dib_persona 
 
-stickman:
+dib_persona:
 
     mov x28, x30
 
