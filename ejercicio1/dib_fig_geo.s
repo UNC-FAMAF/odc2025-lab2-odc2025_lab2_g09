@@ -26,20 +26,20 @@ dib_rectangulo:
     add x6, x0, x6              // x6 = dirección base del rectángulo
 
     mov x7, x5                  // x7 = rect_height (alto del rectángulo)
-.rect_row_loop:
-    mov x8, x4                  // x8 = rect_width (ancho del rectángulo)
-    mov x9, x6                  // x9 = inicio de esta fila
-.rect_col_loop:
-    str w1, [x9]                // guardar color en el píxel
-    add x9, x9, 4               // avanzar al siguiente píxel
-    subs x8, x8, 1
-    b.ne .rect_col_loop         // repetir hasta completar la fila
+    .rect_row_loop:
+        mov x8, x4                  // x8 = rect_width (ancho del rectángulo)
+        mov x9, x6                  // x9 = inicio de esta fila
+    .rect_col_loop:
+        str w1, [x9]                // guardar color en el píxel
+        add x9, x9, 4               // avanzar al siguiente píxel
+        subs x8, x8, 1
+        b.ne .rect_col_loop         // repetir hasta completar la fila
 
-    add x6, x6, SCREEN_STRIDE  // avanzar a la siguiente fila
-    subs x7, x7, 1
-    b.ne .rect_row_loop         // repetir hasta completar todas las filas
+        add x6, x6, SCREEN_STRIDE  // avanzar a la siguiente fila
+        subs x7, x7, 1
+        b.ne .rect_row_loop         // repetir hasta completar todas las filas
 
-    ret
+ret
 
 
 dibujar_ovalo:
@@ -74,59 +74,59 @@ dibujar_ovalo:
     mov     x15, x3            // y actual
     add     x16, x3, x5        // y final (limite)
 
-.loop_y:
-    // Verificar si y terminó
-    cmp     x15, x16
-    b.ge    .end_oval
+    .loop_y:
+        // Verificar si y terminó
+        cmp     x15, x16
+        b.ge    .end_oval
 
-    // Loop por x desde start_x hasta start_x + width
-    mov     x17, x2            // x actual
-    add     x18, x2, x4        // x final (limite)
+        // Loop por x desde start_x hasta start_x + width
+        mov     x17, x2            // x actual
+        add     x18, x2, x4        // x final (limite)
 
-.loop_x:
-    cmp     x17, x18
-    b.ge    .next_row
+    .loop_x:
+        cmp     x17, x18
+        b.ge    .next_row
 
-    // dx = x - cx
-    sub     x19, x17, x12
-    mul     x20, x19, x19      // dx²
+        // dx = x - cx
+        sub     x19, x17, x12
+        mul     x27, x19, x19      // dx²
 
-    // dx² * b²
-    mul     x20, x20, x11
+        // dx² * b²
+        mul     x27, x27, x11
 
-    // dy = y - cy
-    sub     x21, x15, x13
-    mul     x22, x21, x21      // dy²
+        // dy = y - cy
+        sub     x21, x15, x13
+        mul     x22, x21, x21      // dy²
 
-    // dy² * a²
-    mul     x22, x22, x10
+        // dy² * a²
+        mul     x22, x22, x10
 
-    // lhs = dx² * b² + dy² * a²
-    add     x23, x20, x22
+        // lhs = dx² * b² + dy² * a²
+        add     x23, x27, x22
 
-    // Comparar con RHS
-    cmp     x23, x14
-    b.gt    .skip_pixel        // Si está fuera del óvalo, saltar
+        // Comparar con RHS
+        cmp     x23, x14
+        b.gt    .skip_pixel        // Si está fuera del óvalo, saltar
 
-    // Calcular dirección del píxel
-    // offset = (y * SCREEN_WIDTH + x) * 4
-    mov     x24, x15           // y
-    mov     x25, SCREEN_WIDTH
-    mul     x24, x24, x25      // y * SCREEN_WIDTH
-    add     x24, x24, x17      // + x
-    lsl     x24, x24, 2        // * 4 bytes por píxel
-    add     x24, x0, x24       // dirección absoluta
+        // Calcular dirección del píxel
+        // offset = (y * SCREEN_WIDTH + x) * 4
+        mov     x24, x15           // y
+        mov     x25, SCREEN_WIDTH
+        mul     x24, x24, x25      // y * SCREEN_WIDTH
+        add     x24, x24, x17      // + x
+        lsl     x24, x24, 2        // * 4 bytes por píxel
+        add     x24, x0, x24       // dirección absoluta
 
-    // Escribir el color
-    str     w1, [x24]
+        // Escribir el color
+        str     w1, [x24]
 
-.skip_pixel:
-    add     x17, x17, 1        // x++
-    b       .loop_x
+    .skip_pixel:
+        add     x17, x17, 1        // x++
+        b       .loop_x
 
-.next_row:
-    add     x15, x15, 1        // y++
-    b       .loop_y
+    .next_row:
+        add     x15, x15, 1        // y++
+        b       .loop_y
 
 .end_oval:
     ret
@@ -143,50 +143,50 @@ dibujar_circulo:
     sub x6, x3, x4          // x6 = y_start = cy - r
     add x7, x3, x4          // x7 = y_end   = cy + r
 
-.loop_y_circulo:
-    cmp x6, x7
-    b.gt .end_circle
+    .loop_y_circulo:
+        cmp x6, x7
+        b.gt .end_circle
 
-    // x desde (cx - r) hasta (cx + r)
-    sub x8, x2, x4          // x8 = x_start = cx - r
-    add x9, x2, x4          // x9 = x_end   = cx + r
+        // x desde (cx - r) hasta (cx + r)
+        sub x8, x2, x4          // x8 = x_start = cx - r
+        add x9, x2, x4          // x9 = x_end   = cx + r
 
-    mov x10, x8             // x_actual = x_start
+        mov x10, x8             // x_actual = x_start
 
-.loop_x_circulo:
-    cmp x10, x9
-    b.gt .next_row_circulo
+    .loop_x_circulo:
+        cmp x10, x9
+        b.gt .next_row_circulo
 
-    // dx = x_actual - cx
-    sub x11, x10, x2
-    mul x11, x11, x11       // dx²
+        // dx = x_actual - cx
+        sub x11, x10, x2
+        mul x11, x11, x11       // dx²
 
-    // dy = y_actual - cy
-    sub x12, x6, x3
-    mul x12, x12, x12       // dy²
+        // dy = y_actual - cy
+        sub x12, x6, x3
+        mul x12, x12, x12       // dy²
 
-    add x13, x11, x12       // dx² + dy²
+        add x13, x11, x12       // dx² + dy²
 
-    cmp x13, x5
-    b.gt .skip_pixel_circulo        // fuera del círculo
+        cmp x13, x5
+        b.gt .skip_pixel_circulo        // fuera del círculo
 
-    // Calcular dirección del píxel
-    mov x14, x6                 // y_actual
-    mov x15, SCREEN_WIDTH
-    mul x14, x14, x15           // y * SCREEN_WIDTH
-    add x14, x14, x10           // + x
-    lsl x14, x14, 2             // * 4 bytes por píxel
-    add x14, x0, x14            // dirección absoluta
+        // Calcular dirección del píxel
+        mov x14, x6                 // y_actual
+        mov x15, SCREEN_WIDTH
+        mul x14, x14, x15           // y * SCREEN_WIDTH
+        add x14, x14, x10           // + x
+        lsl x14, x14, 2             // * 4 bytes por píxel
+        add x14, x0, x14            // dirección absoluta
 
-    str w1, [x14]               // dibujar píxel
+        str w1, [x14]               // dibujar píxel
 
-.skip_pixel_circulo:
-    add x10, x10, 1             // x++
-    b .loop_x_circulo
+    .skip_pixel_circulo:
+        add x10, x10, 1             // x++
+        b .loop_x_circulo
 
-.next_row_circulo:
-    add x6, x6, 1               // y++
-    b .loop_y_circulo
+    .next_row_circulo:
+        add x6, x6, 1               // y++
+        b .loop_y_circulo
 
 .end_circle:
     ret

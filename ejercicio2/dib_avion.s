@@ -132,8 +132,6 @@ ret
 dispawn_avion:
 
 	mov x28, x30
-	mov x27, x20
-
 
     // COLOR_BG_DARKBLUE
     movz x1, 0xFF0D, lsl #16
@@ -144,7 +142,5 @@ dispawn_avion:
     bl dib_rectangulo
 
 	mov x30, x28
-	mov x20, x27
-
 
 ret

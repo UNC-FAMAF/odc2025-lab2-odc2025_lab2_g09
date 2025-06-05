@@ -22,7 +22,7 @@ LOAD ref_screen.o
 LOAD start.o
                 0x0000000000080000                . = 0x80000
 
-.text           0x0000000000080000    0x90ce8
+.text           0x0000000000080000    0x90cd8
  *(.text.boot)
  .text.boot     0x0000000000080000    0x100c8 start.o
                 0x0000000000080000                _start
@@ -33,88 +33,88 @@ LOAD start.o
                 0x0000000000090104                colorear_fondo
  .text          0x0000000000090130       0x18 delay.o
                 0x0000000000090130                delay
- .text          0x0000000000090148      0x16c dib_avion.o
+ .text          0x0000000000090148      0x164 dib_avion.o
                 0x0000000000090148                avion
                 0x000000000009028c                dispawn_avion
- .text          0x00000000000902b4      0x164 dib_fig_geo.o
-                0x00000000000902b4                dib_rectangulo
-                0x00000000000902f8                dibujar_ovalo
-                0x00000000000903a0                dibujar_circulo
- .text          0x0000000000090418      0x40c dib_letrero.o
-                0x0000000000090418                dib_letrero
- .text          0x0000000000090824      0x39c dib_motel.o
-                0x0000000000090824                dib_motel
- .text          0x0000000000090bc0       0xe4 dib_nubes.o
-                0x0000000000090bc0                dib_nubes
- .text          0x0000000000090ca4       0x44 loop_avion.o
-                0x0000000000090ca4                loop_avion
- .text          0x0000000000090ce8        0x0 ref_colores.o
- .text          0x0000000000090ce8        0x0 ref_screen.o
- .text          0x0000000000090ce8    0x80000 start.o
+ .text          0x00000000000902ac      0x164 dib_fig_geo.o
+                0x00000000000902ac                dib_rectangulo
+                0x00000000000902f0                dibujar_ovalo
+                0x0000000000090398                dibujar_circulo
+ .text          0x0000000000090410      0x40c dib_letrero.o
+                0x0000000000090410                dib_letrero
+ .text          0x000000000009081c      0x39c dib_motel.o
+                0x000000000009081c                dib_motel
+ .text          0x0000000000090bb8       0xdc dib_nubes.o
+                0x0000000000090bb8                dib_nubes
+ .text          0x0000000000090c94       0x44 loop_avion.o
+                0x0000000000090c94                loop_avion
+ .text          0x0000000000090cd8        0x0 ref_colores.o
+ .text          0x0000000000090cd8        0x0 ref_screen.o
+ .text          0x0000000000090cd8    0x80000 start.o
 
-.iplt           0x0000000000110ce8        0x0
- .iplt          0x0000000000110ce8        0x0 app.o
+.iplt           0x0000000000110cd8        0x0
+ .iplt          0x0000000000110cd8        0x0 app.o
 
-.rela.dyn       0x0000000000110ce8        0x0
- .rela.iplt     0x0000000000110ce8        0x0 app.o
+.rela.dyn       0x0000000000110cd8        0x0
+ .rela.iplt     0x0000000000110cd8        0x0 app.o
  .rela.text.boot
-                0x0000000000110ce8        0x0 app.o
+                0x0000000000110cd8        0x0 app.o
 
-.data           0x0000000000110ce8        0x0
- .data          0x0000000000110ce8        0x0 app.o
- .data          0x0000000000110ce8        0x0 colorear_fondo.o
- .data          0x0000000000110ce8        0x0 delay.o
- .data          0x0000000000110ce8        0x0 dib_avion.o
- .data          0x0000000000110ce8        0x0 dib_fig_geo.o
- .data          0x0000000000110ce8        0x0 dib_letrero.o
- .data          0x0000000000110ce8        0x0 dib_motel.o
- .data          0x0000000000110ce8        0x0 dib_nubes.o
- .data          0x0000000000110ce8        0x0 loop_avion.o
- .data          0x0000000000110ce8        0x0 ref_colores.o
- .data          0x0000000000110ce8        0x0 ref_screen.o
- .data          0x0000000000110ce8        0x0 start.o
+.data           0x0000000000110cd8        0x0
+ .data          0x0000000000110cd8        0x0 app.o
+ .data          0x0000000000110cd8        0x0 colorear_fondo.o
+ .data          0x0000000000110cd8        0x0 delay.o
+ .data          0x0000000000110cd8        0x0 dib_avion.o
+ .data          0x0000000000110cd8        0x0 dib_fig_geo.o
+ .data          0x0000000000110cd8        0x0 dib_letrero.o
+ .data          0x0000000000110cd8        0x0 dib_motel.o
+ .data          0x0000000000110cd8        0x0 dib_nubes.o
+ .data          0x0000000000110cd8        0x0 loop_avion.o
+ .data          0x0000000000110cd8        0x0 ref_colores.o
+ .data          0x0000000000110cd8        0x0 ref_screen.o
+ .data          0x0000000000110cd8        0x0 start.o
 
-.igot.plt       0x0000000000110ce8        0x0
- .igot.plt      0x0000000000110ce8        0x0 app.o
+.igot.plt       0x0000000000110cd8        0x0
+ .igot.plt      0x0000000000110cd8        0x0 app.o
 
-.bss            0x0000000000110ce8        0x0
+.bss            0x0000000000110cd8        0x0
  *(.bss*)
- .bss           0x0000000000110ce8        0x0 app.o
- .bss           0x0000000000110ce8        0x0 colorear_fondo.o
- .bss           0x0000000000110ce8        0x0 delay.o
- .bss           0x0000000000110ce8        0x0 dib_avion.o
- .bss           0x0000000000110ce8        0x0 dib_fig_geo.o
- .bss           0x0000000000110ce8        0x0 dib_letrero.o
- .bss           0x0000000000110ce8        0x0 dib_motel.o
- .bss           0x0000000000110ce8        0x0 dib_nubes.o
- .bss           0x0000000000110ce8        0x0 loop_avion.o
- .bss           0x0000000000110ce8        0x0 ref_colores.o
- .bss           0x0000000000110ce8        0x0 ref_screen.o
- .bss           0x0000000000110ce8        0x0 start.o
+ .bss           0x0000000000110cd8        0x0 app.o
+ .bss           0x0000000000110cd8        0x0 colorear_fondo.o
+ .bss           0x0000000000110cd8        0x0 delay.o
+ .bss           0x0000000000110cd8        0x0 dib_avion.o
+ .bss           0x0000000000110cd8        0x0 dib_fig_geo.o
+ .bss           0x0000000000110cd8        0x0 dib_letrero.o
+ .bss           0x0000000000110cd8        0x0 dib_motel.o
+ .bss           0x0000000000110cd8        0x0 dib_nubes.o
+ .bss           0x0000000000110cd8        0x0 loop_avion.o
+ .bss           0x0000000000110cd8        0x0 ref_colores.o
+ .bss           0x0000000000110cd8        0x0 ref_screen.o
+ .bss           0x0000000000110cd8        0x0 start.o
 
-.bss            0x0000000000110ce8        0x8
-                0x0000000000110cf0                . = ALIGN (0x10)
- *fill*         0x0000000000110ce8        0x8 
-                0x0000000000110cf0                __bss_start = .
+.bss            0x0000000000110cd8        0x8
+                0x0000000000110ce0                . = ALIGN (0x10)
+ *fill*         0x0000000000110cd8        0x8 
+                0x0000000000110ce0                __bss_start = .
  *(.bss .bss.*)
  *(COMMON)
-                0x0000000000110cf0                __bss_end = .
-                0x0000000000110cf0                _end = .
+                0x0000000000110ce0                __bss_end = .
+                0x0000000000110ce0                _end = .
                 0x0000000000000000                __bss_size = ((__bss_end - __bss_start) >> 0x3)
 OUTPUT(kernel8.elf elf64-littleaarch64)
 LOAD linker stubs
 
-.debug_line     0x0000000000000000      0x55f
+.debug_line     0x0000000000000000      0x55b
  .debug_line    0x0000000000000000       0x44 app.o
  .debug_line    0x0000000000000044       0x49 colorear_fondo.o
  .debug_line    0x000000000000008d       0x3b delay.o
- .debug_line    0x00000000000000c8       0x94 dib_avion.o
- .debug_line    0x000000000000015c       0x96 dib_fig_geo.o
- .debug_line    0x00000000000001f2      0x13e dib_letrero.o
- .debug_line    0x0000000000000330      0x120 dib_motel.o
- .debug_line    0x0000000000000450       0x72 dib_nubes.o
- .debug_line    0x00000000000004c2       0x4d loop_avion.o
- .debug_line    0x000000000000050f       0x50 start.o
+ .debug_line    0x00000000000000c8       0x92 dib_avion.o
+ .debug_line    0x000000000000015a       0x96 dib_fig_geo.o
+ .debug_line    0x00000000000001f0      0x13e dib_letrero.o
+ .debug_line    0x000000000000032e      0x120 dib_motel.o
+ .debug_line    0x000000000000044e       0x70 dib_nubes.o
+ .debug_line    0x00000000000004be       0x4d loop_avion.o
+ .debug_line    0x000000000000050b       0x50 start.o
 
 .debug_info     0x0000000000000000      0x1cc
  .debug_info    0x0000000000000000       0x2e app.o

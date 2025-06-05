@@ -3,7 +3,6 @@
 stickman:
 
     mov x28, x30
-    mov x27, x20
 
     // color negro
     movz x1, 0xFF00, lsl #16
@@ -42,6 +41,5 @@ stickman:
     bl      dibujar_ovalo
 
     mov x30, x28
-	mov x20, x27
 
 ret

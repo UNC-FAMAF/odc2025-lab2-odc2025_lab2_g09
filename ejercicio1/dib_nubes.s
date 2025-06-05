@@ -6,7 +6,6 @@ dib_nubes:
 
 	//
 	mov x28, x30
-	mov x27, x20
 
     // color blanco 
     movz x1, 0xFFFF, lsl #16
@@ -73,6 +72,5 @@ dib_nubes:
 
     //
 	mov x30, x28
-	mov x20, x27
 
 	ret
