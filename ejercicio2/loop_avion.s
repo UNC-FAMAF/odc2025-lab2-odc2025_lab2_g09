@@ -2,8 +2,8 @@
 
 loop_avion:
 
-	mov x2, 20	// x2 = X
-	mov x3, 20	// x3 = Y
+	mov x2, 100	// x2 = X
+	mov x3, 100	// x3 = Y
 
 	// guarda a X e Y
 	mov x23, x2
@@ -31,21 +31,4 @@ loop_infinito_avion:
 	add x24, x24, 1    // mantiene el avion en dicha posicion
 	b loop_infinito_avion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ret
-
-
-

@@ -104,7 +104,7 @@ LOAD start.o
 OUTPUT(kernel8.elf elf64-littleaarch64)
 LOAD linker stubs
 
-.debug_line     0x0000000000000000      0x55b
+.debug_line     0x0000000000000000      0x559
  .debug_line    0x0000000000000000       0x44 app.o
  .debug_line    0x0000000000000044       0x49 colorear_fondo.o
  .debug_line    0x000000000000008d       0x3b delay.o
@@ -113,8 +113,8 @@ LOAD linker stubs
  .debug_line    0x00000000000001f0      0x13e dib_letrero.o
  .debug_line    0x000000000000032e      0x120 dib_motel.o
  .debug_line    0x000000000000044e       0x70 dib_nubes.o
- .debug_line    0x00000000000004be       0x4d loop_avion.o
- .debug_line    0x000000000000050b       0x50 start.o
+ .debug_line    0x00000000000004be       0x4b loop_avion.o
+ .debug_line    0x0000000000000509       0x50 start.o
 
 .debug_info     0x0000000000000000      0x1cc
  .debug_info    0x0000000000000000       0x2e app.o
