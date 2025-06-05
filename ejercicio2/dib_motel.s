@@ -15,6 +15,13 @@ dib_motel:
     mov x5, 170
     bl dib_rectangulo
 
+    //tercer edifcio
+    mov x2, 400       
+    mov x3, 280       
+    mov x4, 200       
+    mov x5, 200
+    bl dib_rectangulo
+
     //loop ventanas primer edificio
     //COLOR_YELLOW_LIGHT
     movz x1, 0xFFFE, lsl #16 
@@ -36,17 +43,6 @@ dib_motel:
         add x19, x19, 55    // avanzar a siguiente fila
         cmp x19, 425
         ble .loop_fila
-
-    //COLOR_WALL
-    movz x1, 0xFF2E, lsl #16 
-    movk x1, 0x4659, lsl #0     
-
-    //tercer edifcio edificio
-    mov x2, 400       
-    mov x3, 280       
-    mov x4, 200       
-    mov x5, 200
-    bl dib_rectangulo
 
     //COLOR_WALL_SHADOW
     movz x1, 0xFF43, lsl #16 
