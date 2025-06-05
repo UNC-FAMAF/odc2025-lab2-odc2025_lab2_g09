@@ -12,11 +12,8 @@ main:
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
 	bl colorear_fondo	
-
+	
 	//setea la base despues de cada capa 
-	mov x0, x20
-	bl dib_nubes
-
 	mov x0, x20
 	bl dib_motel
 

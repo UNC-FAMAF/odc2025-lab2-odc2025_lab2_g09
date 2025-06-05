@@ -49,84 +49,74 @@ dibujar_ovalo:
 
     cmp x5, 2
     blt .end_oval
-    // Guardar registros temporales si se desea (opcional)
 
     // a = width / 2 ; a²
     mov     x6, x4
     lsr     x6, x6, 1          // x6 = a
-    mul     x10, x6, x6        // x10 = a²
+    mul     x7, x6, x6         // x7 = a²
 
     // b = height / 2 ; b²
-    mov     x7, x5
-    lsr     x7, x7, 1          // x7 = b
-    mul     x11, x7, x7        // x11 = b²
+    mov     x8, x5
+    lsr     x8, x8, 1          // x8 = b
+    mul     x9, x8, x8         // x9 = b²
 
     // cx = start_x + a
-    add     x12, x2, x6        // x12 = cx
+    add     x10, x2, x6        // x10 = cx
 
     // cy = start_y + b
-    add     x13, x3, x7        // x13 = cy
+    add     x11, x3, x8        // x11 = cy
 
     // RHS = a² * b²
-    mul     x14, x10, x11      // x14 = a² * b²
+    mul     x12, x7, x9        // x12 = a² * b²
 
-    // Comenzar el loop por y desde start_y hasta start_y + height
-    mov     x15, x3            // y actual
-    add     x16, x3, x5        // y final (limite)
+    // y actual = start_y
+    mov     x13, x3
+    add     x14, x3, x5        // y final
 
-    .loop_y:
-        // Verificar si y terminó
-        cmp     x15, x16
-        b.ge    .end_oval
+.loop_y:
+    cmp     x13, x14
+    b.ge    .end_oval
 
-        // Loop por x desde start_x hasta start_x + width
-        mov     x17, x2            // x actual
-        add     x18, x2, x4        // x final (limite)
+    mov     x15, x2
+    add     x16, x2, x4        // x final
 
-    .loop_x:
-        cmp     x17, x18
-        b.ge    .next_row
+.loop_x:
+    cmp     x15, x16
+    b.ge    .next_row
 
-        // dx = x - cx
-        sub     x19, x17, x12
-        mul     x27, x19, x19      // dx²
+    // dx = x - cx
+    sub     x17, x15, x10
+    mul     x18, x17, x17
+    mul     x18, x18, x9       // dx² * b²
 
-        // dx² * b²
-        mul     x27, x27, x11
+    // dy = y - cy
+    sub     x19, x13, x11
+    mul     x21, x19, x19
+    mul     x21, x21, x7       // dy² * a²
 
-        // dy = y - cy
-        sub     x21, x15, x13
-        mul     x22, x21, x21      // dy²
+    // lhs = dx² * b² + dy² * a²
+    add     x22, x18, x21
 
-        // dy² * a²
-        mul     x22, x22, x10
+    // comparar con RHS
+    cmp     x22, x12
+    b.gt    .skip_pixel
 
-        // lhs = dx² * b² + dy² * a²
-        add     x23, x27, x22
+    // offset = ((y * SCREEN_WIDTH) + x) * 4
+    mov     x25, SCREEN_WIDTH
+    mul     x26, x13, x25
+    add     x26, x26, x15
+    lsl     x26, x26, 2
+    add     x26, x0, x26
 
-        // Comparar con RHS
-        cmp     x23, x14
-        b.gt    .skip_pixel        // Si está fuera del óvalo, saltar
+    str     w1, [x26]
 
-        // Calcular dirección del píxel
-        // offset = (y * SCREEN_WIDTH + x) * 4
-        mov     x24, x15           // y
-        mov     x25, SCREEN_WIDTH
-        mul     x24, x24, x25      // y * SCREEN_WIDTH
-        add     x24, x24, x17      // + x
-        lsl     x24, x24, 2        // * 4 bytes por píxel
-        add     x24, x0, x24       // dirección absoluta
+.skip_pixel:
+    add     x15, x15, 1
+    b       .loop_x
 
-        // Escribir el color
-        str     w1, [x24]
-
-    .skip_pixel:
-        add     x17, x17, 1        // x++
-        b       .loop_x
-
-    .next_row:
-        add     x15, x15, 1        // y++
-        b       .loop_y
+.next_row:
+    add     x13, x13, 1
+    b       .loop_y
 
 .end_oval:
     ret

@@ -45,8 +45,8 @@ avion:
     bl dib_rectangulo
 
     // color blanco
-    movz x1, 0xFFFF, lsl #16
-    movk x1, 0xFFFF, lsl #0
+    movz x1, 0xFF7A, lsl #16
+    movk x1, 0x95A7, lsl #0
 
 	// alas
     add x2, x21, 16
@@ -110,21 +110,4 @@ avion:
 	mov x2, x21
 	mov x3, x22
 	mov x30, x28
-ret
-
-
-dispawn_avion:
-
-	mov x28, x30
-
-    // COLOR_BG_DARKBLUE
-    movz x1, 0xFF0D, lsl #16
-    movk x1, 0x171F, lsl #0
-
-    mov x4, 52
-    mov x5, 26
-    bl dib_rectangulo
-
-	mov x30, x28
-
 ret
