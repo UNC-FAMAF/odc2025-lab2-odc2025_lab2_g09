@@ -15,14 +15,38 @@ dib_motel:
     mov x5, 170
     bl dib_rectangulo
 
+    //loop ventanas primer edificio
+    //COLOR_YELLOW_LIGHT
+    movz x1, 0xFFFE, lsl #16 
+    movk x1, 0xAA63, lsl #0 
+    mov x19, 315        // y inicial
+    .loop_fila:
+        mov x21, 30          // x inicial por fila
+    .loop_col:
+        mov x2, x21          // x
+        mov x3, x19         // y
+        mov x4, 35          // ancho
+        mov x5, 50          // alto
+        bl dib_rectangulo
+
+        add x21, x21, 40      // avanzar a siguiente ventana
+        cmp x21, 190
+        ble .loop_col
+
+        add x19, x19, 55    // avanzar a siguiente fila
+        cmp x19, 425
+        ble .loop_fila
+
+    //COLOR_WALL
+    movz x1, 0xFF2E, lsl #16 
+    movk x1, 0x4659, lsl #0     
+
     //tercer edifcio edificio
     mov x2, 400       
     mov x3, 280       
     mov x4, 200       
     mov x5, 200
     bl dib_rectangulo
-
-    
 
     //COLOR_WALL_SHADOW
     movz x1, 0xFF43, lsl #16 
@@ -148,98 +172,6 @@ dib_motel:
     mov x5, 30
     bl dib_rectangulo
 
-    // ventana en primer edifcio edificio 1
-    mov x2, 30
-    mov x3, 315       
-    mov x4, 35       
-    mov x5, 50
-    bl dib_rectangulo
-
-    // ventana en primer edifcio edificio 2
-    mov x2, 70
-    mov x3, 315       
-    mov x4, 35       
-    mov x5, 50
-    bl dib_rectangulo
-
-    // ventana en primer edifcio edificio 3
-    mov x2, 110
-    mov x3, 315       
-    mov x4, 35       
-    mov x5, 50
-    bl dib_rectangulo
-
-    // ventana en primer edifcio edificio 4
-    mov x2, 150       
-    mov x3, 315       
-    mov x4, 35       
-    mov x5, 50
-    bl dib_rectangulo
-
-    // ventana en primer edifcio edificio 5
-    mov x2, 190
-    mov x3, 315
-    mov x4, 35
-    mov x5, 45
-    bl dib_rectangulo
-
-    // ventana en primer edifcio edificio 6
-    mov x2, 30
-    mov x3, 370
-    mov x4, 35       
-    mov x5, 50
-    bl dib_rectangulo
-
-    // ventana en primer edifcio edificio 7
-    mov x2, 70
-    mov x3, 370       
-    mov x4, 35       
-    mov x5, 50
-    bl dib_rectangulo
-
-    // ventana en primer edifcio edificio 8
-    mov x2, 110
-    mov x3, 370       
-    mov x4, 35       
-    mov x5, 50
-    bl dib_rectangulo
-
-    // ventana en primer edifcio edificio 9
-    mov x2, 150       
-    mov x3, 370
-    mov x4, 35       
-    mov x5, 50
-    bl dib_rectangulo
-
-    // ventana en primer edifcio edificio 11
-    mov x2, 30
-    mov x3, 425
-    mov x4, 35       
-    mov x5, 50
-    bl dib_rectangulo
-
-    // ventana en primer edifcio edificio 12
-    mov x2, 70
-    mov x3, 425       
-    mov x4, 35       
-    mov x5, 50
-    bl dib_rectangulo
-
-    // ventana en primer edifcio edificio 13
-    mov x2, 110
-    mov x3, 425       
-    mov x4, 35       
-    mov x5, 50
-    bl dib_rectangulo
-
-    // ventana en primer edifcio edificio 14
-    mov x2, 150       
-    mov x3, 425
-    mov x4, 35       
-    mov x5, 50
-    bl dib_rectangulo
-
-
     //Color alternativo COLOR_WINDOW_GLASS
     movz x1, 0xFFD0, lsl #16 
     movk x1, 0xDDE4, lsl #0 
@@ -324,8 +256,6 @@ dib_motel:
     mov x4, 20       
     mov x5, 30
     bl dib_rectangulo
-
-    
     
     //ventana en tercer edifcio edificio 11
     mov x2, 510       
