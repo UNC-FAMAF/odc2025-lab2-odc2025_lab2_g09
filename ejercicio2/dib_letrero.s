@@ -136,7 +136,7 @@ dib_letrero:
     mov x5, 5       // height
     bl dib_rectangulo
     
-    mov x2, 430
+    mov x2, 420
     mov x3, 260
     mov x4, 5
     mov x5, 10
