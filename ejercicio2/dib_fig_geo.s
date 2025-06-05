@@ -43,80 +43,75 @@ ret
 
 
 dibujar_ovalo:
-    // No dibujar si ancho o alto es 0 o 1
+    // si ancho < 2 saltea
     cmp x4, 2
     blt .end_oval
 
     cmp x5, 2
     blt .end_oval
 
-    // a = width / 2 ; a²
-    mov     x6, x4
-    lsr     x6, x6, 1          // x6 = a
-    mul     x7, x6, x6         // x7 = a²
+    // a = x4 / 2
+    lsr x6, x4, 1
+    mul x6, x6, x6     // x6 = a²
 
-    // b = height / 2 ; b²
-    mov     x8, x5
-    lsr     x8, x8, 1          // x8 = b
-    mul     x9, x8, x8         // x9 = b²
+    // b = x5 / 2
+    lsr x7, x5, 1
+    mul x7, x7, x7     // x7 = b²
 
-    // cx = start_x + a
-    add     x10, x2, x6        // x10 = cx
+    // cx = x2 + (x4 / 2)
+    lsr x8, x4, 1
+    add x8, x2, x8     // x8 = cx
 
-    // cy = start_y + b
-    add     x11, x3, x8        // x11 = cy
+    // cy = x3 + (x5 / 2)
+    lsr x9, x5, 1
+    add x9, x3, x9     // x9 = cy
 
-    // RHS = a² * b²
-    mul     x12, x7, x9        // x12 = a² * b²
+    mul x10, x6, x7    // lado derecho = a² * b²
 
-    // y actual = start_y
-    mov     x13, x3
-    add     x14, x3, x5        // y final
+    mov x11, x3              // y = inicio_y
+    add x12, x3, x5          // y_final = inicio_y + altura
 
-.loop_y:
-    cmp     x13, x14
-    b.ge    .end_oval
+    .loop_y:
+        cmp x11, x12
+        b.ge .end_oval
 
-    mov     x15, x2
-    add     x16, x2, x4        // x final
+        mov x13, x2              // x = inicio_x
+        add x14, x2, x4          // x_final = inicio_x + ancho
 
-.loop_x:
-    cmp     x15, x16
-    b.ge    .next_row
+    .loop_x:
+        cmp x13, x14
+        b.ge .next_y
 
-    // dx = x - cx
-    sub     x17, x15, x10
-    mul     x18, x17, x17
-    mul     x18, x18, x9       // dx² * b²
+        // dx = x - cx
+        sub x15, x13, x8
+        mul x15, x15, x15    // dx²
+        mul x15, x15, x7     // dx² * b²
 
-    // dy = y - cy
-    sub     x19, x13, x11
-    mul     x21, x19, x19
-    mul     x21, x21, x7       // dy² * a²
+        // dy = y - cy
+        sub x16, x11, x9
+        mul x16, x16, x16    // dy²
+        mul x16, x16, x6     // dy² * a²
 
-    // lhs = dx² * b² + dy² * a²
-    add     x22, x18, x21
+        add x17, x15, x16    // lado izquierdo = dx²*b² + dy²*a²
+        cmp x17, x10
+        b.gt .skip_pixel
 
-    // comparar con RHS
-    cmp     x22, x12
-    b.gt    .skip_pixel
+        //offset = ((y * SCREEN_WIDTH) + x) * 4
+        mov x18, SCREEN_WIDTH
+        mul x18, x11, x18
+        add x18, x18, x13
+        lsl x18, x18, 2
+        add x18, x0, x18
 
-    // offset = ((y * SCREEN_WIDTH) + x) * 4
-    mov     x25, SCREEN_WIDTH
-    mul     x26, x13, x25
-    add     x26, x26, x15
-    lsl     x26, x26, 2
-    add     x26, x0, x26
+        str w1, [x18]
 
-    str     w1, [x26]
+    .skip_pixel:
+        add x13, x13, 1
+        b .loop_x
 
-.skip_pixel:
-    add     x15, x15, 1
-    b       .loop_x
-
-.next_row:
-    add     x13, x13, 1
-    b       .loop_y
+    .next_y:
+        add x11, x11, 1
+        b .loop_y
 
 .end_oval:
     ret
