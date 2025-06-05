@@ -1,15 +1,17 @@
 .global dib_motel
 
 dib_motel:
-    mov x28, x30 
+
+	//
+	mov x28, x30
 
     //COLOR_WALL
     movz x1, 0xFF2E, lsl #16 
     movk x1, 0x4659, lsl #0 
 
     //primer edificio
-    mov x2, 110       
-    mov x3, 300       
+    mov x2, 80       
+    mov x3, 310       
     mov x4, 200       
     mov x5, 120
     bl dib_rectangulo
@@ -28,9 +30,9 @@ dib_motel:
     movk x1, 0x5D73, lsl #0 
 
     //segundo edificio
-    mov x2, 250       
-    mov x3, 350       
-    mov x4, 200       
+    mov x2, 240       
+    mov x3, 361       
+    mov x4, 220       
     mov x5, 70
     bl dib_rectangulo     
 
@@ -42,23 +44,23 @@ dib_motel:
 
     //ventana en tercer edifcio edificio 1
     mov x2, 480       
-    mov x3, 320       
+    mov x3, 300       
     mov x4, 20       
-    mov x5, 20
+    mov x5, 30
     bl dib_rectangulo
     
     //ventana en tercer edifcio edificio 7
     mov x2, 560       
-    mov x3, 360       
+    mov x3, 350       
     mov x4, 20       
-    mov x5, 20
+    mov x5, 30
     bl dib_rectangulo
     
     //ventana en tercer edifcio edificio 8
     mov x2, 600       
-    mov x3, 360       
+    mov x3, 350       
     mov x4, 20       
-    mov x5, 20
+    mov x5, 30
     bl dib_rectangulo 
 
     //ventana en tercer edifcio edificio 10
@@ -71,29 +73,29 @@ dib_motel:
     
 
     //ventana en segundo edifcio edificio 1 
-    mov x2, 270       
-    mov x3, 370       
+    mov x2, 260       
+    mov x3, 380       
     mov x4, 20       
     mov x5, 30
     bl dib_rectangulo
 
     //ventana en segundo edifcio edificio 2
-    mov x2, 300       
-    mov x3, 370       
+    mov x2, 292       
+    mov x3, 380       
     mov x4, 20       
     mov x5, 30
     bl dib_rectangulo
  
     //ventana en segundo edifcio edificio 3
-    mov x2, 330       
-    mov x3, 370       
+    mov x2, 324       
+    mov x3, 380       
     mov x4, 20       
     mov x5, 30
     bl dib_rectangulo
 
     //ventana en segundo edifcio edificio 4
-    mov x2, 360       
-    mov x3, 370       
+    mov x2, 356       
+    mov x3, 380       
     mov x4, 20       
     mov x5, 30
     bl dib_rectangulo
@@ -102,23 +104,23 @@ dib_motel:
 
     //ventana en segundo edifcio edificio 6
     mov x2, 420       
-    mov x3, 370       
+    mov x3, 380       
     mov x4, 20       
     mov x5, 30
     bl dib_rectangulo
 
-    //ventana en primer edifcio edificio
-    mov x2, 230       
-    mov x3, 320       
-    mov x4, 20       
-    mov x5, 30
+    //ventana en primer edifcio edificio 1
+    mov x2, 200       
+    mov x3, 325       
+    mov x4, 24       
+    mov x5, 34
     bl dib_rectangulo
 
-    //ventana en primer edifcio edificio
-    mov x2, 270       
-    mov x3, 320       
-    mov x4, 20       
-    mov x5, 30
+    //ventana en primer edifcio edificio 2
+    mov x2, 240       
+    mov x3, 325       
+    mov x4, 24       
+    mov x5, 34
     bl dib_rectangulo
 
     //Color alternativo COLOR_WINDOW_GLASS
@@ -126,38 +128,38 @@ dib_motel:
     movk x1, 0xDDE4, lsl #0 
 
     //ventana en segundo edifcio edificio 5
-    mov x2, 390       
-    mov x3, 370       
+    mov x2, 388       
+    mov x3, 380       
     mov x4, 20       
     mov x5, 30
     bl dib_rectangulo 
 
     //ventana en tercer edifcio edificio 2
     mov x2, 520       
-    mov x3, 320       
+    mov x3, 300       
     mov x4, 20       
-    mov x5, 20
+    mov x5, 30
     bl dib_rectangulo
 
     //ventana en tercer edifcio edificio 3
     mov x2, 560       
-    mov x3, 320       
+    mov x3, 300       
     mov x4, 20       
-    mov x5, 20
+    mov x5, 30
     bl dib_rectangulo
 
     //ventana en tercer edifcio edificio 4
     mov x2, 600       
-    mov x3, 320       
+    mov x3, 300       
     mov x4, 20       
-    mov x5, 20
+    mov x5, 30
     bl dib_rectangulo
     
     //ventana en tercer edifcio edificio 6
     mov x2, 520       
-    mov x3, 360       
+    mov x3, 350       
     mov x4, 20       
-    mov x5, 20
+    mov x5, 30
     bl dib_rectangulo
     
     
@@ -187,7 +189,9 @@ dib_motel:
 
 
     
-    
-mov x30, x28
+	//
+	mov x30, x28
+
+
     
 ret
