@@ -12,15 +12,10 @@ main:
  	mov x20, x0	// Guarda la dirección base del framebuffer en x20
 	//---------------- CODE HERE ------------------------------------
 	bl colorear_fondo	
-	
-	mov x0, x20
 	bl dib_letrero
-	
-	//setea la base despues de cada capa 
-	mov x0, x20
 	bl dib_motel
-	
-	mov x0, x20
+	bl dib_pared
+	bl dib_persona
 	bl loop_animacion
 
 
