@@ -11,15 +11,15 @@ dib_persona:
     // cuerpo 
     mov x2, 10  // start_x 
     mov x3, 320 // start_y 
-    mov x4, 280 // 
-    mov x5, 460 // 
+    mov x4, 280 // width 
+    mov x5, 460 // height
     bl dibujar_ovalo
 
 	// cabeza
-    mov     x2, 90                // start_x
-    mov     x3, 161                // start_y
-    mov     x4, 130                // width
-    mov     x5, 160                 // height
+    mov     x2, 90                
+    mov     x3, 161                
+    mov     x4, 130                
+    mov     x5, 160                 
     bl      dibujar_ovalo
 
     // color blanco 
@@ -27,17 +27,17 @@ dib_persona:
     movk x1, 0xFFFF, lsl #0
 
 	// ojo derecho
-    mov     x2, 170                // start_x
-    mov     x3, 218                // start_y
-    mov     x4, 18                // width
-    mov     x5, 40                 // height
+    mov     x2, 170               
+    mov     x3, 218                
+    mov     x4, 18               
+    mov     x5, 40                 
     bl      dibujar_ovalo
 
 	// ojo izquierdo
-    mov     x2, 195                // start_x
-    mov     x3, 215                // start_y
-    mov     x4, 18                // width
-    mov     x5, 40                 // height
+    mov     x2, 195                
+    mov     x3, 215                
+    mov     x4, 18                
+    mov     x5, 40                 
     bl      dibujar_ovalo
 
     mov x30, x28

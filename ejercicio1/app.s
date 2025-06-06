@@ -16,17 +16,9 @@ main:
 	//setea la base despues de cada capa 
 	mov x0, x20
 	bl dib_nubes
-
-	mov x0, x20
 	bl dib_motel
-
-	mov x0, x20
 	bl dib_pared
-
-	mov x0, x20
 	bl dib_letrero
-
-	mov x0, x20
 	bl dib_persona
 
 	// Ejemplo de uso de gpios

@@ -1,8 +1,9 @@
 .global dib_pared
 
 dib_pared:
-	//
+	//guarda la dirreccion del ret 
 	mov x28, x30
+    
     //dibuja pared
 	//COLOR_WALL
 	movz x1, 0xFF2E, lsl #16 

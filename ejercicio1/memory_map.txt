@@ -21,93 +21,93 @@ LOAD ref_screen.o
 LOAD start.o
                 0x0000000000080000                . = 0x80000
 
-.text           0x0000000000080000    0x909dc
+.text           0x0000000000080000    0x909cc
  *(.text.boot)
  .text.boot     0x0000000000080000    0x100c8 start.o
                 0x0000000000080000                _start
  *(.text*)
- .text          0x00000000000900c8       0x48 app.o
+ .text          0x00000000000900c8       0x38 app.o
                 0x00000000000900c8                main
- .text          0x0000000000090110       0x2c colorear_fondo.o
-                0x0000000000090110                colorear_fondo
- .text          0x000000000009013c      0x160 dib_fig_geo.o
-                0x000000000009013c                dib_rectangulo
-                0x0000000000090180                dibujar_ovalo
-                0x0000000000090224                dibujar_circulo
- .text          0x000000000009029c      0x39c dib_letrero.o
-                0x000000000009029c                dib_letrero
- .text          0x0000000000090638      0x1ac dib_motel.o
-                0x0000000000090638                dib_motel
- .text          0x00000000000907e4       0xb4 dib_nubes.o
-                0x00000000000907e4                dib_nubes
- .text          0x0000000000090898       0xd8 dib_pared.o
-                0x0000000000090898                dib_pared
- .text          0x0000000000090970       0x6c dib_persona.o
-                0x0000000000090970                dib_persona
- .text          0x00000000000909dc        0x0 ref_colores.o
- .text          0x00000000000909dc        0x0 ref_screen.o
- .text          0x00000000000909dc    0x80000 start.o
+ .text          0x0000000000090100       0x2c colorear_fondo.o
+                0x0000000000090100                colorear_fondo
+ .text          0x000000000009012c      0x160 dib_fig_geo.o
+                0x000000000009012c                dib_rectangulo
+                0x0000000000090170                dibujar_ovalo
+                0x0000000000090214                dibujar_circulo
+ .text          0x000000000009028c      0x39c dib_letrero.o
+                0x000000000009028c                dib_letrero
+ .text          0x0000000000090628      0x1ac dib_motel.o
+                0x0000000000090628                dib_motel
+ .text          0x00000000000907d4       0xb4 dib_nubes.o
+                0x00000000000907d4                dib_nubes
+ .text          0x0000000000090888       0xd8 dib_pared.o
+                0x0000000000090888                dib_pared
+ .text          0x0000000000090960       0x6c dib_persona.o
+                0x0000000000090960                dib_persona
+ .text          0x00000000000909cc        0x0 ref_colores.o
+ .text          0x00000000000909cc        0x0 ref_screen.o
+ .text          0x00000000000909cc    0x80000 start.o
 
-.iplt           0x00000000001109dc        0x0
- .iplt          0x00000000001109dc        0x0 app.o
+.iplt           0x00000000001109cc        0x0
+ .iplt          0x00000000001109cc        0x0 app.o
 
-.rela.dyn       0x00000000001109e0        0x0
- .rela.iplt     0x00000000001109e0        0x0 app.o
+.rela.dyn       0x00000000001109d0        0x0
+ .rela.iplt     0x00000000001109d0        0x0 app.o
  .rela.text.boot
-                0x00000000001109e0        0x0 app.o
+                0x00000000001109d0        0x0 app.o
 
-.data           0x00000000001109dc        0x0
- .data          0x00000000001109dc        0x0 app.o
- .data          0x00000000001109dc        0x0 colorear_fondo.o
- .data          0x00000000001109dc        0x0 dib_fig_geo.o
- .data          0x00000000001109dc        0x0 dib_letrero.o
- .data          0x00000000001109dc        0x0 dib_motel.o
- .data          0x00000000001109dc        0x0 dib_nubes.o
- .data          0x00000000001109dc        0x0 dib_pared.o
- .data          0x00000000001109dc        0x0 dib_persona.o
- .data          0x00000000001109dc        0x0 ref_colores.o
- .data          0x00000000001109dc        0x0 ref_screen.o
- .data          0x00000000001109dc        0x0 start.o
+.data           0x00000000001109cc        0x0
+ .data          0x00000000001109cc        0x0 app.o
+ .data          0x00000000001109cc        0x0 colorear_fondo.o
+ .data          0x00000000001109cc        0x0 dib_fig_geo.o
+ .data          0x00000000001109cc        0x0 dib_letrero.o
+ .data          0x00000000001109cc        0x0 dib_motel.o
+ .data          0x00000000001109cc        0x0 dib_nubes.o
+ .data          0x00000000001109cc        0x0 dib_pared.o
+ .data          0x00000000001109cc        0x0 dib_persona.o
+ .data          0x00000000001109cc        0x0 ref_colores.o
+ .data          0x00000000001109cc        0x0 ref_screen.o
+ .data          0x00000000001109cc        0x0 start.o
 
-.igot.plt       0x00000000001109e0        0x0
- .igot.plt      0x00000000001109e0        0x0 app.o
+.igot.plt       0x00000000001109d0        0x0
+ .igot.plt      0x00000000001109d0        0x0 app.o
 
-.bss            0x00000000001109dc        0x0
+.bss            0x00000000001109cc        0x0
  *(.bss*)
- .bss           0x00000000001109dc        0x0 app.o
- .bss           0x00000000001109dc        0x0 colorear_fondo.o
- .bss           0x00000000001109dc        0x0 dib_fig_geo.o
- .bss           0x00000000001109dc        0x0 dib_letrero.o
- .bss           0x00000000001109dc        0x0 dib_motel.o
- .bss           0x00000000001109dc        0x0 dib_nubes.o
- .bss           0x00000000001109dc        0x0 dib_pared.o
- .bss           0x00000000001109dc        0x0 dib_persona.o
- .bss           0x00000000001109dc        0x0 ref_colores.o
- .bss           0x00000000001109dc        0x0 ref_screen.o
- .bss           0x00000000001109dc        0x0 start.o
+ .bss           0x00000000001109cc        0x0 app.o
+ .bss           0x00000000001109cc        0x0 colorear_fondo.o
+ .bss           0x00000000001109cc        0x0 dib_fig_geo.o
+ .bss           0x00000000001109cc        0x0 dib_letrero.o
+ .bss           0x00000000001109cc        0x0 dib_motel.o
+ .bss           0x00000000001109cc        0x0 dib_nubes.o
+ .bss           0x00000000001109cc        0x0 dib_pared.o
+ .bss           0x00000000001109cc        0x0 dib_persona.o
+ .bss           0x00000000001109cc        0x0 ref_colores.o
+ .bss           0x00000000001109cc        0x0 ref_screen.o
+ .bss           0x00000000001109cc        0x0 start.o
 
-.bss            0x00000000001109dc        0x4
-                0x00000000001109e0                . = ALIGN (0x10)
- *fill*         0x00000000001109dc        0x4 
-                0x00000000001109e0                __bss_start = .
+.bss            0x00000000001109cc        0x4
+                0x00000000001109d0                . = ALIGN (0x10)
+ *fill*         0x00000000001109cc        0x4 
+                0x00000000001109d0                __bss_start = .
  *(.bss .bss.*)
  *(COMMON)
-                0x00000000001109e0                __bss_end = .
-                0x00000000001109e0                _end = .
+                0x00000000001109d0                __bss_end = .
+                0x00000000001109d0                _end = .
                 0x0000000000000000                __bss_size = ((__bss_end - __bss_start) >> 0x3)
 OUTPUT(kernel8.elf elf64-littleaarch64)
 LOAD linker stubs
 
-.debug_line     0x0000000000000000      0x466
- .debug_line    0x0000000000000000       0x47 app.o
- .debug_line    0x0000000000000047       0x49 colorear_fondo.o
- .debug_line    0x0000000000000090       0x95 dib_fig_geo.o
- .debug_line    0x0000000000000125      0x122 dib_letrero.o
- .debug_line    0x0000000000000247       0xa4 dib_motel.o
- .debug_line    0x00000000000002eb       0x66 dib_nubes.o
- .debug_line    0x0000000000000351       0x6f dib_pared.o
- .debug_line    0x00000000000003c0       0x56 dib_persona.o
- .debug_line    0x0000000000000416       0x50 start.o
+.debug_line     0x0000000000000000      0x462
+ .debug_line    0x0000000000000000       0x43 app.o
+ .debug_line    0x0000000000000043       0x49 colorear_fondo.o
+ .debug_line    0x000000000000008c       0x95 dib_fig_geo.o
+ .debug_line    0x0000000000000121      0x122 dib_letrero.o
+ .debug_line    0x0000000000000243       0xa4 dib_motel.o
+ .debug_line    0x00000000000002e7       0x66 dib_nubes.o
+ .debug_line    0x000000000000034d       0x6f dib_pared.o
+ .debug_line    0x00000000000003bc       0x56 dib_persona.o
+ .debug_line    0x0000000000000412       0x50 start.o
 
 .debug_info     0x0000000000000000      0x19e
  .debug_info    0x0000000000000000       0x2e app.o

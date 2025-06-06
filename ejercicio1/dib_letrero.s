@@ -3,13 +3,16 @@
 dib_letrero:
     mov x28, x30 
 
+    //MOTEL
+    //dibuja M
     movz x1, 0xFFe6, lsl #16 
     movk x1, 0x8d3e, lsl #0
     mov x0, x20
-    mov x2, 455       // start_x
-    mov x3, 224       // start_y
+    mov x2, 455       
+    mov x3, 224     
     bl dibujar_M
 
+    //dibuja O
     movz x1, 0xFFFF, lsl #16 
     movk x1, 0xFF00, lsl #0
     mov x2, 488       // start_x
@@ -19,72 +22,74 @@ dib_letrero:
     bl dibujar_O
 
     //letra T
-    mov x2, 513       // start_x
-    mov x3, 224       // start_y
-    mov x4, 25       // width
-    mov x5, 5      // height
+    mov x2, 513       
+    mov x3, 224       
+    mov x4, 25       
+    mov x5, 5      
     bl dib_rectangulo
-    mov x2, 523       // start_x
-    mov x3, 229       // start_y
-    mov x4, 5       // width
-    mov x5, 20       // height
+    mov x2, 523       
+    mov x3, 229       
+    mov x4, 5       
+    mov x5, 20       
     bl dib_rectangulo
 
     //letra E
-    mov x2, 543       // start_x
-    mov x3, 229       // start_y
-    mov x4, 5       // width
-    mov x5, 15       // height
+    mov x2, 543       
+    mov x3, 229       
+    mov x4, 5       
+    mov x5, 15       
     bl dib_rectangulo
-    mov x2, 543       // start_x
-    mov x3, 224       // start_y
-    mov x4, 20       // width
-    mov x5, 5      // height
+    mov x2, 543       
+    mov x3, 224       
+    mov x4, 20       
+    mov x5, 5      
     bl dib_rectangulo
-    mov x2, 543       // start_x
-    mov x3, 244       // start_y
-    mov x4, 20       // width
-    mov x5, 5       // height
+    mov x2, 543       
+    mov x3, 244      
+    mov x4, 20       
+    mov x5, 5      
     bl dib_rectangulo
-    mov x2, 543       // start_x
-    mov x3, 234       // start_y
-    mov x4, 15       // width
-    mov x5, 5       // height
+    mov x2, 543       
+    mov x3, 234      
+    mov x4, 15       
+    mov x5, 5       
     bl dib_rectangulo
 
     //letra L
-    mov x2, 568       // start_x
-    mov x3, 224       // start_y
-    mov x4, 5       // width
-    mov x5, 20       // height
+    mov x2, 568       
+    mov x3, 224       
+    mov x4, 5       
+    mov x5, 20      
     bl dib_rectangulo
-    mov x2, 568       // start_x
-    mov x3, 244       // start_y
-    mov x4, 20       // width
-    mov x5, 5      // height
+    mov x2, 568       
+    mov x3, 244       
+    mov x4, 20       
+    mov x5, 5      
     bl dib_rectangulo
 
-    mov x2, 455       // start_x
-    mov x3, 260       // start_y
-    mov x4, 5       // width
-    mov x5, 2       // height
+    //ODC_2025  
+    //dibuja O
+    mov x2, 455      
+    mov x3, 260      
+    mov x4, 5       
+    mov x5, 2      
     bl dibujar_O
     
     //letra D
-    mov x2, 479       // start_x
-    mov x3, 255       // start_y
-    mov x4, 5       // width
-    mov x5, 20       // height
+    mov x2, 479       
+    mov x3, 255      
+    mov x4, 5       
+    mov x5, 20       
     bl dib_rectangulo
-    mov x2, 484       // start_x
-    mov x3, 255       // start_y
-    mov x4, 8       // width
-    mov x5, 5      // height
+    mov x2, 484       
+    mov x3, 255      
+    mov x4, 8       
+    mov x5, 5      
     bl dib_rectangulo
-    mov x2, 484       // start_x
-    mov x3, 270       // start_y
-    mov x4, 8       // width
-    mov x5, 5       // height
+    mov x2, 484      
+    mov x3, 270       
+    mov x4, 8       
+    mov x5, 5      
     bl dib_rectangulo
     mov x2, 492
     mov x3, 260
@@ -95,20 +100,20 @@ dib_letrero:
     movz x1, 0xFFe6, lsl #16 
     movk x1, 0x8d3e, lsl #0
     //letra C
-    mov x2, 501       // start_x
-    mov x3, 260       // start_y
-    mov x4, 5       // width
-    mov x5, 10       // height
+    mov x2, 501       
+    mov x3, 260       
+    mov x4, 5      
+    mov x5, 10      
     bl dib_rectangulo
-    mov x2, 506       // start_x
-    mov x3, 255       // start_y
-    mov x4, 10       // width
-    mov x5, 5      // height
+    mov x2, 506       
+    mov x3, 255       
+    mov x4, 10      
+    mov x5, 5      
     bl dib_rectangulo
-    mov x2, 506       // start_x
-    mov x3, 270       // start_y
-    mov x4, 10       // width
-    mov x5, 5       // height
+    mov x2, 506      
+    mov x3, 270      
+    mov x4, 10       
+    mov x5, 5       
     bl dib_rectangulo
     
     movz x1, 0xFFFF, lsl #16 
@@ -120,10 +125,12 @@ dib_letrero:
     mov x5, 5
     bl dib_rectangulo
 
+    //dibuja 2
     mov x2, 539
     mov x3, 260
     bl dibujar_numero_2
     
+    //dibuja O
     movz x1, 0xFFe6, lsl #16 
     movk x1, 0x8d3e, lsl #0
     mov x2, 563
@@ -132,6 +139,7 @@ dib_letrero:
     mov x5, 2
     bl dibujar_O
 
+    //dibuja 2
     mov x2, 587
     mov x3, 260
     bl dibujar_numero_2
@@ -169,6 +177,7 @@ dib_letrero:
 
 ret
 
+//funciones de letras
 //Letras
 dibujar_M:
     mov x29, x30 
