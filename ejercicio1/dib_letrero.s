@@ -3,13 +3,15 @@
 dib_letrero:
     mov x28, x30 
 
-    movz x1, 0xFFFF, lsl #16 
-    movk x1, 0xFF00, lsl #0
+    movz x1, 0xFFe6, lsl #16 
+    movk x1, 0x8d3e, lsl #0
     mov x0, x20
     mov x2, 455       // start_x
     mov x3, 224       // start_y
     bl dibujar_M
 
+    movz x1, 0xFFFF, lsl #16 
+    movk x1, 0xFF00, lsl #0
     mov x2, 488       // start_x
     mov x3, 229       // start_y
     mov x4, 5       // width
@@ -90,6 +92,8 @@ dib_letrero:
     mov x5, 10
     bl dib_rectangulo
     
+    movz x1, 0xFFe6, lsl #16 
+    movk x1, 0x8d3e, lsl #0
     //letra C
     mov x2, 501       // start_x
     mov x3, 260       // start_y
@@ -107,6 +111,8 @@ dib_letrero:
     mov x5, 5       // height
     bl dib_rectangulo
     
+    movz x1, 0xFFFF, lsl #16 
+    movk x1, 0xFF00, lsl #0
     //guion bajo
     mov x2, 520
     mov x3, 270
@@ -118,6 +124,8 @@ dib_letrero:
     mov x3, 260
     bl dibujar_numero_2
     
+    movz x1, 0xFFe6, lsl #16 
+    movk x1, 0x8d3e, lsl #0
     mov x2, 563
     mov x3, 260
     mov x4, 5
@@ -128,6 +136,8 @@ dib_letrero:
     mov x3, 260
     bl dibujar_numero_2
     
+    movz x1, 0xFFFF, lsl #16 
+    movk x1, 0xFF00, lsl #0
     //numero cinco
     mov x2, 612
     mov x3, 255
