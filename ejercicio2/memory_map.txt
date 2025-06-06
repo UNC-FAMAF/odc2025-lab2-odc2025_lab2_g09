@@ -21,7 +21,7 @@ LOAD ref_screen.o
 LOAD start.o
                 0x0000000000080000                . = 0x80000
 
-.text           0x0000000000080000    0x90b24
+.text           0x0000000000080000    0x90a8c
  *(.text.boot)
  .text.boot     0x0000000000080000    0x100c8 start.o
                 0x0000000000080000                _start
@@ -36,78 +36,81 @@ LOAD start.o
                 0x0000000000090270                dib_rectangulo
                 0x00000000000902b4                dibujar_ovalo
                 0x0000000000090358                dibujar_circulo
- .text          0x00000000000903d0      0x40c dib_letrero.o
+ .text          0x00000000000903d0      0x374 dib_letrero.o
                 0x00000000000903d0                dib_letrero
- .text          0x00000000000907dc      0x1fc dib_motel.o
-                0x00000000000907dc                dib_motel
- .text          0x00000000000909d8       0xdc dib_nubes.o
-                0x00000000000909d8                dib_nubes
- .text          0x0000000000090ab4       0x70 loop_animacion.o
-                0x0000000000090ab4                loop_animacion
- .text          0x0000000000090b24        0x0 ref_colores.o
- .text          0x0000000000090b24        0x0 ref_screen.o
- .text          0x0000000000090b24    0x80000 start.o
+                0x00000000000905ec                dibujar_M
+                0x0000000000090664                dibujar_O
+                0x00000000000906cc                dibujar_numero_2
+ .text          0x0000000000090744      0x1fc dib_motel.o
+                0x0000000000090744                dib_motel
+ .text          0x0000000000090940       0xdc dib_nubes.o
+                0x0000000000090940                dib_nubes
+ .text          0x0000000000090a1c       0x70 loop_animacion.o
+                0x0000000000090a1c                loop_animacion
+ .text          0x0000000000090a8c        0x0 ref_colores.o
+ .text          0x0000000000090a8c        0x0 ref_screen.o
+ .text          0x0000000000090a8c    0x80000 start.o
 
-.iplt           0x0000000000110b24        0x0
- .iplt          0x0000000000110b24        0x0 app.o
+.iplt           0x0000000000110a8c        0x0
+ .iplt          0x0000000000110a8c        0x0 app.o
 
-.rela.dyn       0x0000000000110b28        0x0
- .rela.iplt     0x0000000000110b28        0x0 app.o
+.rela.dyn       0x0000000000110a90        0x0
+ .rela.iplt     0x0000000000110a90        0x0 app.o
  .rela.text.boot
-                0x0000000000110b28        0x0 app.o
+                0x0000000000110a90        0x0 app.o
 
-.data           0x0000000000110b24        0x0
- .data          0x0000000000110b24        0x0 app.o
- .data          0x0000000000110b24        0x0 colorear_fondo.o
- .data          0x0000000000110b24        0x0 dib_avion.o
- .data          0x0000000000110b24        0x0 dib_fig_geo.o
- .data          0x0000000000110b24        0x0 dib_letrero.o
- .data          0x0000000000110b24        0x0 dib_motel.o
- .data          0x0000000000110b24        0x0 dib_nubes.o
- .data          0x0000000000110b24        0x0 loop_animacion.o
- .data          0x0000000000110b24        0x0 ref_colores.o
- .data          0x0000000000110b24        0x0 ref_screen.o
- .data          0x0000000000110b24        0x0 start.o
+.data           0x0000000000110a8c        0x0
+ .data          0x0000000000110a8c        0x0 app.o
+ .data          0x0000000000110a8c        0x0 colorear_fondo.o
+ .data          0x0000000000110a8c        0x0 dib_avion.o
+ .data          0x0000000000110a8c        0x0 dib_fig_geo.o
+ .data          0x0000000000110a8c        0x0 dib_letrero.o
+ .data          0x0000000000110a8c        0x0 dib_motel.o
+ .data          0x0000000000110a8c        0x0 dib_nubes.o
+ .data          0x0000000000110a8c        0x0 loop_animacion.o
+ .data          0x0000000000110a8c        0x0 ref_colores.o
+ .data          0x0000000000110a8c        0x0 ref_screen.o
+ .data          0x0000000000110a8c        0x0 start.o
 
-.igot.plt       0x0000000000110b28        0x0
- .igot.plt      0x0000000000110b28        0x0 app.o
+.igot.plt       0x0000000000110a90        0x0
+ .igot.plt      0x0000000000110a90        0x0 app.o
 
-.bss            0x0000000000110b24        0x0
+.bss            0x0000000000110a8c        0x0
  *(.bss*)
- .bss           0x0000000000110b24        0x0 app.o
- .bss           0x0000000000110b24        0x0 colorear_fondo.o
- .bss           0x0000000000110b24        0x0 dib_avion.o
- .bss           0x0000000000110b24        0x0 dib_fig_geo.o
- .bss           0x0000000000110b24        0x0 dib_letrero.o
- .bss           0x0000000000110b24        0x0 dib_motel.o
- .bss           0x0000000000110b24        0x0 dib_nubes.o
- .bss           0x0000000000110b24        0x0 loop_animacion.o
- .bss           0x0000000000110b24        0x0 ref_colores.o
- .bss           0x0000000000110b24        0x0 ref_screen.o
- .bss           0x0000000000110b24        0x0 start.o
+ .bss           0x0000000000110a8c        0x0 app.o
+ .bss           0x0000000000110a8c        0x0 colorear_fondo.o
+ .bss           0x0000000000110a8c        0x0 dib_avion.o
+ .bss           0x0000000000110a8c        0x0 dib_fig_geo.o
+ .bss           0x0000000000110a8c        0x0 dib_letrero.o
+ .bss           0x0000000000110a8c        0x0 dib_motel.o
+ .bss           0x0000000000110a8c        0x0 dib_nubes.o
+ .bss           0x0000000000110a8c        0x0 loop_animacion.o
+ .bss           0x0000000000110a8c        0x0 ref_colores.o
+ .bss           0x0000000000110a8c        0x0 ref_screen.o
+ .bss           0x0000000000110a8c        0x0 start.o
 
-.bss            0x0000000000110b24        0xc
-                0x0000000000110b30                . = ALIGN (0x10)
- *fill*         0x0000000000110b24        0xc 
-                0x0000000000110b30                __bss_start = .
+.bss            0x0000000000110a8c        0x4
+                0x0000000000110a90                . = ALIGN (0x10)
+ *fill*         0x0000000000110a8c        0x4 
+                0x0000000000110a90                __bss_start = .
  *(.bss .bss.*)
  *(COMMON)
-                0x0000000000110b30                __bss_end = .
-                0x0000000000110b30                _end = .
+                0x0000000000110a90                __bss_end = .
+                0x0000000000110a90                _end = .
                 0x0000000000000000                __bss_size = ((__bss_end - __bss_start) >> 0x3)
 OUTPUT(kernel8.elf elf64-littleaarch64)
 LOAD linker stubs
 
-.debug_line     0x0000000000000000      0x4bb
+.debug_line     0x0000000000000000      0x495
  .debug_line    0x0000000000000000       0x43 app.o
  .debug_line    0x0000000000000043       0x49 colorear_fondo.o
  .debug_line    0x000000000000008c       0x8a dib_avion.o
  .debug_line    0x0000000000000116       0x95 dib_fig_geo.o
- .debug_line    0x00000000000001ab      0x13e dib_letrero.o
- .debug_line    0x00000000000002e9       0xb8 dib_motel.o
- .debug_line    0x00000000000003a1       0x70 dib_nubes.o
- .debug_line    0x0000000000000411       0x5a loop_animacion.o
- .debug_line    0x000000000000046b       0x50 start.o
+ .debug_line    0x00000000000001ab      0x118 dib_letrero.o
+ .debug_line    0x00000000000002c3       0xb8 dib_motel.o
+ .debug_line    0x000000000000037b       0x70 dib_nubes.o
+ .debug_line    0x00000000000003eb       0x5a loop_animacion.o
+ .debug_line    0x0000000000000445       0x50 start.o
 
 .debug_info     0x0000000000000000      0x19e
  .debug_info    0x0000000000000000       0x2e app.o

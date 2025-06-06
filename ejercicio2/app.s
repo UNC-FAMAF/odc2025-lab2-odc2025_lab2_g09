@@ -13,12 +13,12 @@ main:
 	//---------------- CODE HERE ------------------------------------
 	bl colorear_fondo	
 	
+	mov x0, x20
+	bl dib_letrero
+	
 	//setea la base despues de cada capa 
 	mov x0, x20
 	bl dib_motel
-
-	mov x0, x20
-	bl dib_letrero
 	
 	mov x0, x20
 	bl loop_animacion
